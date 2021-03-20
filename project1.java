@@ -1,18 +1,19 @@
 import java.util.*;
- 
-class project1
+
+public class project1
 {          
-    public static int[] find_maxmin(int[] array,int L,int U) {
-        int[] Result = new int[2];
-        int min, Max, mid, Maxtemp1, mintemp1, Maxtemp2, mintemp2;
+    public static double[] find_maxmin(double[] array, int L, int U) {
+        double[] Result = new double[2];
+        double min, Max, Maxtemp1, mintemp1, Maxtemp2, mintemp2;
+        int mid;
         if (L==U) {
             min = array[L];
             Max = array[L];
         }
         else {
             mid = (L + U) / 2;
-            int[] Result1 = find_maxmin( array, L, mid);    
-            int[] Result2 = find_maxmin( array, mid+1, U);
+            double[] Result1 = find_maxmin( array, L, mid);    
+            double[] Result2 = find_maxmin( array, mid+1, U);
             Maxtemp1 = Result1[0];
             mintemp1 = Result1[1];
             Maxtemp2=Result2[0];
@@ -34,13 +35,13 @@ class project1
         Scanner input = new Scanner(System.in); 
         System.out.println("enter n :");
         n=input.nextInt();
-        int[] x=new int[n];
-        int[] y=new int[n];
+        double[] x=new double[n];
+        double[] y=new double[n];
         for(int i=0; i<n; i++){
         System.out.println("enter x["+i+"]:");
-          x[i] = input.nextInt();
+          x[i] = input.nextDouble();
           System.out.println("enter y["+i+"]:");
-          y[i] = input.nextInt();
+          y[i] = input.nextDouble();
         }
         x=find_maxmin(x,0,n-1);
         y=find_maxmin(y,0,n-1);
